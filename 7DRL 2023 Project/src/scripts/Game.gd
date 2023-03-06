@@ -7,11 +7,25 @@ var waiting_on_input = true
 
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if (Input.is_action_just_pressed("move_upleft") or
+	Input.is_action_just_pressed("move_up") or
+	Input.is_action_just_pressed("move_upright") or
+	Input.is_action_just_pressed("move_left") or
+	Input.is_action_just_pressed("move_right") or
+	Input.is_action_just_pressed("move_downleft") or
+	Input.is_action_just_pressed("move_down") or
+	Input.is_action_just_pressed("move_downright") or
+	Input.is_action_just_pressed("wait")):
 		waiting_on_input = false
+		_process(0)
+	
+#	if event.is_action_pressed("ui_accept"):
+#		waiting_on_input = false
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.position = Global.start_cell * 16
 	pass # Replace with function body.
 
 
