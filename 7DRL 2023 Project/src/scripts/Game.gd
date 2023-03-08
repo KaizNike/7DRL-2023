@@ -5,6 +5,8 @@ var waiting_on_input = true
 # var a = 2
 # var b = "text"
 
+var wanderTurns = 0
+var currentWander = 0
 
 func _input(event):
 	if (Input.is_action_just_pressed("move_upleft") or
@@ -18,7 +20,10 @@ func _input(event):
 	Input.is_action_just_pressed("wait")):
 		waiting_on_input = false
 		_process(0)
-	
+	if Input.is_action_just_pressed("wander"):
+		currentWander = $Player.currentWander
+		waiting_on_input = false
+		_process(0)
 #	if event.is_action_pressed("ui_accept"):
 #		waiting_on_input = false
 	pass
@@ -26,12 +31,16 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.position = Global.start_cell * 16
+	wanderTurns = $Player.wanderTurns
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not waiting_on_input:
+	if currentWander <= wanderTurns:
+		waiting_on_input = false
+		currentWander += 1
+	if not waiting_on_input or currentWander < wanderTurns:
 		var group = get_children()
 		for child in group:
 			if child.is_in_group("actionable"):
