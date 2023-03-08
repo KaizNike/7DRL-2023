@@ -35,9 +35,12 @@ func _ready():
 			set_cell(i-n/2,j-n/2,0)
 	for i in range(n):
 		set_cell(x[i],y[i],1)
-		if randi() % 12 == 7:
+		var rand = randi()
+		if rand % 12 == 7:
 			print(Vector2(x[i],y[i]))
 			Global.start_cell = Vector2(x[i],y[i])
+		elif rand % 12 == 9:
+			Global.spawn_cells.append(Vector2(x[i],y[i]))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

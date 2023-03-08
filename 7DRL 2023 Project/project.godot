@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actors",
+"language": "GDScript",
+"path": "res://src/scripts/Actor.gd"
+} ]
+_global_script_class_icons={
+"Actors": ""
+}
+
 [application]
 
 config/name="7DRL 2023 Project"

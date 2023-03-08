@@ -24,6 +24,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _get_direction() -> Vector2:
+	return Vector2(
+		-Input.get_action_raw_strength("move_left") + Input.get_action_raw_strength("move_right"),
+		Input.get_action_raw_strength("move_down") - Input.get_action_raw_strength("move_up")
+	)
+
 
 func take_turn():
 	var dir = Vector2.ZERO
@@ -35,22 +41,23 @@ func take_turn():
 			currentWander = 0
 		dir = Vector2(randi()%3-1,randi()%3-1)
 	else:
-#		if Input.is_action_just_pressed("move_upleft"):
-#			dir = Vector2(-1,-1)
-		if Input.is_action_just_pressed("move_up"):
-			dir = Vector2(0,-1)
-#		elif Input.is_action_just_pressed("move_upright"):
-#			dir = Vector2(1,-1)
-		elif Input.is_action_just_pressed("move_left"):
-			dir = Vector2(-1,0)
-		elif Input.is_action_just_pressed("move_right"):
-			dir = Vector2(1,0)
-#		elif Input.is_action_just_pressed("move_downleft"):
-#			dir = Vector2(-1,1)
-		elif Input.is_action_just_pressed("move_down"):
-			dir = Vector2(0,1)
-#		elif Input.is_action_just_pressed("move_downright"):
-#			dir = Vector2(1,1)
+		dir = _get_direction()
+##		if Input.is_action_just_pressed("move_upleft"):
+##			dir = Vector2(-1,-1)
+#		if Input.is_action_just_pressed("move_up"):
+#			dir = Vector2(0,-1)
+##		elif Input.is_action_just_pressed("move_upright"):
+##			dir = Vector2(1,-1)
+#		elif Input.is_action_just_pressed("move_left"):
+#			dir = Vector2(-1,0)
+#		elif Input.is_action_just_pressed("move_right"):
+#			dir = Vector2(1,0)
+##		elif Input.is_action_just_pressed("move_downleft"):
+##			dir = Vector2(-1,1)
+#		elif Input.is_action_just_pressed("move_down"):
+#			dir = Vector2(0,1)
+##		elif Input.is_action_just_pressed("move_downright"):
+##			dir = Vector2(1,1)
 	print(dir)
 	vision.cast_to = dir * 16
 	vision.enabled = true

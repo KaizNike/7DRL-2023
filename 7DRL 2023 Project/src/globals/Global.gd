@@ -1,9 +1,10 @@
 extends Node
 
-const version = [0,3,1]
-# v 0.3.0 - Fog ye War, With ZoOm
+const version = [0,4,0]
+# v 0.4.0 - The Oozy Chapter
 
 var start_cell := Vector2.ZERO
+var spawn_cells := []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

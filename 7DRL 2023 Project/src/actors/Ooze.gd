@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Actors
+onready var vision = $RayCast2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,3 +14,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func take_turn():
+	var dir = Vector2(randi()%2-1,randi()%2-1)
+	vision.cast_to = dir * 16
+	vision.enabled = true
+	vision.force_raycast_update()
+	if vision.is_colliding():
+		print("Blocked!")
+		vision.enabled = false
+		return
+	else:
+		position += dir * 16
+		vision.enabled = false
+	
