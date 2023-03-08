@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="7DRL 2023 Project"
+config/name="Robber's Haul"
+config/description="Haul away gold in this scifi thriller roguelike where you are the ne'are'do'well."
 run/main_scene="res://src/Game.tscn"
 config/icon="res://Assets/@.png"
 
