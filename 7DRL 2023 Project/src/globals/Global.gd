@@ -1,7 +1,7 @@
 extends Node
 
-const version = [0,3,0]
-# v 0.3.0 - Fog ye War
+const version = [0,3,1]
+# v 0.3.0 - Fog ye War, With ZoOm
 
 var start_cell := Vector2.ZERO
 # Declare member variables here. Examples:

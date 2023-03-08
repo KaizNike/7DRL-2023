@@ -5,8 +5,13 @@ onready var vision = $RayCast2D
 var wandering = false
 var wanderTurns = 20
 var currentWander = 0
+var zoomSpeed = 0.85
 
 func _input(event):
+	if event.is_action_pressed("mouse_wheelup"):
+		$Camera2D.zoom /= zoomSpeed
+	elif event.is_action_pressed("mouse_wheeldown"):
+		$Camera2D.zoom *= zoomSpeed
 	if event.is_action_pressed("wander") and not wandering:
 		wandering = true
 		
