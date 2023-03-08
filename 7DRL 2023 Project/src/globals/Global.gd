@@ -1,7 +1,8 @@
 extends Node
 
-const version = [1,0,0]
-# v 1.0.0 - Robber's Haul
+const version = [1,0,1]
+# v 1.0.1 - Robber's Haul
+# Edited spawn rates
 
 var start_cell := Vector2.ZERO
 var spawn_cells := []

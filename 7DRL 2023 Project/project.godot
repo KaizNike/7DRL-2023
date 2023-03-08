@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="7DRL 2023 Project"
+run/main_scene="res://src/Game.tscn"
 config/icon="res://Assets/@.png"
 
 [autoload]
