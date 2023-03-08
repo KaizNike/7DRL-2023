@@ -16,7 +16,8 @@ func _ready():
 #	pass
 
 func take_turn():
-	var dir = Vector2(randi()%2-1,randi()%2-1)
+	var dir = Vector2(randi()%3-1,randi()%3-1)
+	print(dir)
 	vision.cast_to = dir * 16
 	vision.enabled = true
 	vision.force_raycast_update()

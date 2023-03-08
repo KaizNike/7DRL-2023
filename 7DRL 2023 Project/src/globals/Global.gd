@@ -1,10 +1,14 @@
 extends Node
 
-const version = [0,4,0]
-# v 0.4.0 - The Oozy Chapter
+const version = [1,0,0]
+# v 1.0.0 - Robber's Haul
 
 var start_cell := Vector2.ZERO
 var spawn_cells := []
+var coin_spawns := []
+var coin_count := 0
+
+var win := false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

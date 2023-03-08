@@ -39,7 +39,9 @@ func _ready():
 		if rand % 12 == 7:
 			print(Vector2(x[i],y[i]))
 			Global.start_cell = Vector2(x[i],y[i])
-		elif rand % 12 == 9:
+		elif rand % 16 == 3:
+			Global.coin_spawns.append(Vector2(x[i],y[i]))
+		elif rand % 16 == 9:
 			Global.spawn_cells.append(Vector2(x[i],y[i]))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

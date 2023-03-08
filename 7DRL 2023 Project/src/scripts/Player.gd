@@ -63,6 +63,13 @@ func take_turn():
 	vision.enabled = true
 	vision.force_raycast_update()
 	if vision.is_colliding():
+		var obj = vision.get_collider()
+		if obj.is_in_group("grabable"):
+			obj.queue_free()
+			Global.coin_count += 1
+			if Global.coin_count >= Global.coin_spawns.size():
+				Global.win = true
+				queue_free()
 		print("Blocked!")
 		vision.enabled = false
 		return
