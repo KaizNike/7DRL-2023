@@ -60,7 +60,7 @@ func _process(delta):
 	if currentWander <= wanderTurns and $Player.wandering:
 		waiting_on_input = false
 		currentWander += 1
-	if not waiting_on_input or currentWander < wanderTurns:
+	if not waiting_on_input or currentWander < wanderTurns and $Player.wandering:
 		var group = get_children()
 		for child in group:
 			if child.is_in_group("actionable"):
