@@ -11,14 +11,14 @@ var wanderTurns = 0
 var currentWander = 0
 
 func _input(event):
-	if (Input.is_action_just_pressed("move_upleft") or
-	Input.is_action_just_pressed("move_up") or
-	Input.is_action_just_pressed("move_upright") or
+	if (Input.is_action_just_pressed("move_up") or
+#		Input.is_action_just_pressed("move_upleft") or
+#	Input.is_action_just_pressed("move_upright") or
 	Input.is_action_just_pressed("move_left") or
 	Input.is_action_just_pressed("move_right") or
-	Input.is_action_just_pressed("move_downleft") or
+#	Input.is_action_just_pressed("move_downleft") or
 	Input.is_action_just_pressed("move_down") or
-	Input.is_action_just_pressed("move_downright") or
+#	Input.is_action_just_pressed("move_downright") or
 	Input.is_action_just_pressed("wait")):
 		waiting_on_input = false
 		_process(0)

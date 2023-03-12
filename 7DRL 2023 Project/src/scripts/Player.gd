@@ -7,6 +7,8 @@ var wanderTurns = 20
 var currentWander = 0
 var zoomSpeed = 0.85
 
+const stats = {"PHY_DMG": 2, "RNG_DMG": 8, "HP": 6}
+
 func _input(event):
 	if event.is_action_pressed("mouse_wheelup"):
 		$Camera2D.zoom /= zoomSpeed
@@ -70,6 +72,10 @@ func take_turn():
 			if Global.coin_count >= Global.coin_spawns.size():
 				Global.win = true
 				queue_free()
+		elif obj.is_in_group("actionable") and "relation" in obj:
+			if obj.relation != "TEAM" or obj.relation != "NEUTRAL":
+				obj.deal_dmg(stats.PHY_DMG)
+			pass
 		print("Blocked!")
 		vision.enabled = false
 		return

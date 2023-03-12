@@ -5,9 +5,12 @@ onready var vision = $RayCast2D
 # var a = 2
 # var b = "text"
 
-
+const relation = "OOZE"
+const stats = {"PHY_DMG": 1, "RNG_DMG": 1, "HP": 12}
+var currentStats = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	currentStats = stats.duplicate(true)
 	pass # Replace with function body.
 
 
@@ -29,3 +32,10 @@ func take_turn():
 		position += dir * 16
 		vision.enabled = false
 	
+	
+func deal_dmg(dmg):
+	if currentStats.HP - dmg <= 0:
+		queue_free()
+	else:
+		currentStats.HP -= dmg
+		$AnimationPlayer.play("take_dmg")

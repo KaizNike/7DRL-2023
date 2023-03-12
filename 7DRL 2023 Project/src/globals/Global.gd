@@ -1,8 +1,8 @@
 extends Node
 
-const version = [1,0,2]
-# v 1.0.2 - Robber's Haul
-# Edited spawn rates # Added check for player auto movement
+const version = [1,1,0]
+# v 1.1.0 - Robber's Haul
+# Combat Update
 
 var start_cell := Vector2.ZERO
 var spawn_cells := []
