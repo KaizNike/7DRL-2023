@@ -3,6 +3,7 @@ extends Node
 var waiting_on_input = true
 export (PackedScene) var enemy
 export (PackedScene) var coin
+export (PackedScene) var corpse
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -32,6 +33,7 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.connect("on_Actor_Death",self,"_on_actor_death")
 	$Player.position = Global.start_cell * 16
 	wanderTurns = $Player.wanderTurns
 	print(Global.spawn_cells.size())
@@ -72,3 +74,9 @@ func _process(delta):
 
 func get_cell(pos:Vector2):
 	return $TileMap.get_cellv(pos)
+
+
+func _on_actor_death(loc):
+	var new = corpse.instance()
+	new.position = loc
+	self.add_child(new)

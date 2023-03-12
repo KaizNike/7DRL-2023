@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Beast1eyeslight.png" type="Texture" id=4]
 [ext_resource path="res://src/actors/Ooze.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/actors/Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/items/Corpse.tscn" type="PackedScene" id=7]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -17,6 +18,7 @@ noise = SubResource( 1 )
 script = ExtResource( 3 )
 enemy = ExtResource( 5 )
 coin = ExtResource( 6 )
+corpse = ExtResource( 7 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 
@@ -71,9 +73,11 @@ position = Vector2( 138, 125 )
 texture = ExtResource( 4 )
 
 [node name="Ooze" parent="." instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 16, 64 )
 
 [node name="Coin" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 64, 64 )
 
 [node name="Control" type="CanvasLayer" parent="."]

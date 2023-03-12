@@ -19,13 +19,17 @@ func _ready():
 #	pass
 
 func take_turn():
-	var dir = Vector2(randi()%3-1,randi()%3-1)
-	print(dir)
+	var x = randi()%3-1
+	var y = 0
+	if not x:
+		y = randi()%3-1
+	var dir = Vector2(x,y)
+#	print(dir)
 	vision.cast_to = dir * 16
 	vision.enabled = true
 	vision.force_raycast_update()
 	if vision.is_colliding():
-		print("Blocked!")
+#		print("Blocked!")
 		vision.enabled = false
 		return
 	else:
@@ -35,7 +39,9 @@ func take_turn():
 	
 func deal_dmg(dmg):
 	if currentStats.HP - dmg <= 0:
-		queue_free()
+		Global.emit_signal("on_Actor_Death", self.global_position)
+		$AnimationPlayer.play("death")
+#		queue_free()
 	else:
 		currentStats.HP -= dmg
 		$AnimationPlayer.play("take_dmg")

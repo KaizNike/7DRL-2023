@@ -1,8 +1,8 @@
 extends Node
 
-const version = [1,1,0]
+const version = [1,1,1]
 # v 1.1.0 - Robber's Haul
-# Combat Update
+# Combat Update, Death Update
 
 var start_cell := Vector2.ZERO
 var spawn_cells := []
@@ -10,10 +10,8 @@ var coin_spawns := []
 var coin_count := 0
 
 var win := false
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
+signal on_Actor_Death
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
